@@ -33,7 +33,9 @@ app.use(compression());
 
 const protocol = envVar.nodeEnv === "production" ? "https" : "http";
 app.listen(envVar.port, () => {
-	logger.info(`Server listening on ${protocol}://${envVar.hostname}:${envVar.port}`);
+	logger.info(
+		`Server listening on ${protocol}://${envVar.hostname}:${envVar.port}`,
+	);
 });
 
 export default app;
