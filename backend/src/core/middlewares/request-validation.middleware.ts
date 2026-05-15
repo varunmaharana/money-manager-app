@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { ZodObject, ZodError } from "zod";
-import { asyncHandler } from "../core/utils/asyncHandler.js";
-import { BadRequestError } from "../core/errors/CustomError.js";
+import { asyncHandler } from "../utils/async-handler.js";
+import { BadRequestError } from "../errors/custom-error.js";
 
 export enum ValidationSource {
 	BODY = "body",

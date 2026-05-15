@@ -15,7 +15,7 @@ class ApiResponse {
 	static send(
 		res: Response,
 		statusCode: number,
-		payload: any,
+		payload: any = null,
 		message: string = "Success",
 		success: boolean = true,
 	) {
