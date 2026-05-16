@@ -1,4 +1,5 @@
 import { Response } from "express";
+import envVar from "../../config/env.config";
 
 export enum ErrorType {
 	BAD_REQUEST = "BadRequest",
@@ -37,7 +38,7 @@ export class ApiError extends Error {
 			success: err.success,
             type: err.type || ErrorType.INTERNAL,
 			message: err.message || "Internal Server Error",
-			...(process.env.NODE_ENV === "development" && {
+			...(envVar.nodeEnv === "development" && {
 				stack: err.stack,
 			}),
 		});

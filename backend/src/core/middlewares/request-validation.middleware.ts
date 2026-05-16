@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { ZodObject, ZodError } from "zod";
 import { asyncHandler } from "../utils/async-handler.js";
 import { BadRequestError } from "../errors/custom-error.js";
+import { logger } from "../logger/logger.js";
 
 export enum ValidationSource {
 	BODY = "body",
@@ -31,6 +32,11 @@ const validateRequest = (schema: ZodObject, source: ValidationSource) =>
 				const message = err.issues
 					.map((issue) => issue.message)
 					.join(";");
+
+				logger.error(
+					`Validation Failed ${req.method} ${req.originalUrl} - ${message}`,
+				);
+
 				throw new BadRequestError(message);
 			}
 			next(err);
