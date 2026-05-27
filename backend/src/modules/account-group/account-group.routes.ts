@@ -1,20 +1,20 @@
 import { Router } from "express";
 
-import { accountGroupsController } from "./account-groups.module";
+import { accountGroupController } from "./account-group.module";
 
 import validateRequest, {
 	ValidationSource,
 } from "../../core/middlewares/request-validation.middleware";
 
-import {} from "./account-groups.validation";
+import {} from "./account-group.validation";
 
 const namespace = "/account-groups";
 
-const accountGroupsRouter = Router();
+const accountGroupRouter = Router();
 
 // Add routes here
 
 export default {
 	namespace,
-	router: accountGroupsRouter,
+	router: accountGroupRouter,
 };

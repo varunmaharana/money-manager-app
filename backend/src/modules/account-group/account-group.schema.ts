@@ -1,7 +1,7 @@
 import { users } from "../user/user.schema";
-import { baseColumns } from "./../../database/schema/base-columns.schema";
+import { baseColumns } from "../../database/schema/base-columns.schema";
 import { pgTable, pgEnum, text, uuid } from "drizzle-orm/pg-core";
-import { AccountGroupType } from "./account-groups.enums";
+import { AccountGroupType } from "./account-group.enums";
 
 export const accountGroupTypeEnum = pgEnum(
 	"account_group_type",

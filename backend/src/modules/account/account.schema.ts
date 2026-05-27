@@ -1,4 +1,4 @@
-import { accountGroups } from "../account-groups/account-groups.schema";
+import { accountGroups } from "../account-group/account-groups.schema";
 import { baseColumns } from "./../../database/schema/base-columns.schema";
 import { pgTable, text, numeric, uuid } from "drizzle-orm/pg-core";
 

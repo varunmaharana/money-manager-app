@@ -1,7 +1,7 @@
 import { users } from "../user/user.schema";
-import { baseColumns } from "./../../database/schema/base-columns.schema";
+import { baseColumns } from "../../database/schema/base-columns.schema";
 import { pgTable, pgEnum, text, uuid } from "drizzle-orm/pg-core";
-import { CategoryGroupType } from "./category-groups.enums";
+import { CategoryGroupType } from "./category-group.enums";
 
 export const categoryGroupTypeEnum = pgEnum(
 	"category_group_type",
