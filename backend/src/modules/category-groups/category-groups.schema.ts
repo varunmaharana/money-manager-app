@@ -1,6 +1,12 @@
 import { users } from "../user/user.schema";
 import { baseColumns } from "./../../database/schema/base-columns.schema";
-import { pgTable, text, uuid } from "drizzle-orm/pg-core";
+import { pgTable, pgEnum, text, uuid } from "drizzle-orm/pg-core";
+import { CategoryGroupType } from "./category-groups.enums";
+
+export const categoryGroupTypeEnum = pgEnum(
+	"category_group_type",
+	Object.values(CategoryGroupType) as [string, ...string[]],
+);
 
 export const categoryGroups = pgTable("category_groups", {
 	...baseColumns,
@@ -12,4 +18,5 @@ export const categoryGroups = pgTable("category_groups", {
 			onUpdate: "cascade",
 		}),
 	name: text("name").notNull(),
+	type: categoryGroupTypeEnum("type").notNull(),
 });
